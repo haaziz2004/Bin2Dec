@@ -1,5 +1,6 @@
 package com.bin2dec.converter;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,10 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ConverterController {
 
     @GetMapping("/convert")
-    public Integer convert(@RequestParam String inputString) {
+    public String convert(@RequestParam String inputString) {
 
         int sum = 0;
         int count = 0;
@@ -26,7 +28,7 @@ public class ConverterController {
             count ++;
         }
 
-        return sum;
+        return String.valueOf(sum);
     }
 
 }

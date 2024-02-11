@@ -7,6 +7,7 @@ class App extends Component {
       super(props);
       this.state = {
         inputValue: '',
+        convertedValue:'',
       };
     }
 
@@ -14,13 +15,22 @@ class App extends Component {
     handleInputChange = (event) => {
         const inputValue = event.target.value;
         this.setState({ inputValue });
+        console.log(inputValue)
+        fetch(`http://localhost:8080/api/convert?inputString=${inputValue}`)
+        .then(response => response.text())
+        .then(convertedValue => {
+          this.setState({ convertedValue });
+        })
+        .catch(error => console.error('Error:', error));
       };
 
 
 
 
+
+
 render() {
-    const { inputValue } = this.state;
+    const { inputValue,convertedValue } = this.state;
 
 
     return (
@@ -34,7 +44,7 @@ render() {
 
 
         <div className="result-window">
-            <p>{inputValue}</p>
+            <p>{convertedValue}</p>
         </div>
 
 
