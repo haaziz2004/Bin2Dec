@@ -1,0 +1,41 @@
+body{
+  background-color: aquamarine;
+}
+.custom-input {
+  width: 400px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 75px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.title {
+  font-size: 52px;
+  text-align: center;
+  font-family: 'lato', sans-serif;
+}
+
+.subheading {
+  font-size: 20px;
+  text-align: center;
+  font-family: 'YourSubheadingFont', sans-serif;
+}
+.result-window {
+  background-color: antiquewhite;
+  height:75px;
+  width:600px;
+  text-align: center;
+  font-size: 25px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 100px;
+  border-radius: 10px;
+  border: 2px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
