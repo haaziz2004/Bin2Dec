@@ -16,12 +16,21 @@ class App extends Component {
         const inputValue = event.target.value;
         this.setState({ inputValue });
         console.log(inputValue)
-        fetch(`http://localhost:8080/api/convert?inputString=${inputValue}`)
-        .then(response => response.text())
-        .then(convertedValue => {
-          this.setState({ convertedValue });
-        })
-        .catch(error => console.error('Error:', error));
+        if (inputValue.trim() === ''){
+          this.setState({ convertedValue: '' });
+        }
+        else if (/^[01 ]+$/.test(inputValue)) {
+          fetch(`http://localhost:8080/api/convert?inputString=${inputValue}`)
+            .then(response => response.text())
+            .then(convertedValue => {
+              this.setState({ convertedValue });
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+          console.log('Input contains characters other than 0 and 1');
+          this.setState({ convertedValue: 'Input contains characters other than 0 and 1' });
+
+        }
       };
 
 
